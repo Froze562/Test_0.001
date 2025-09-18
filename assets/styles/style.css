@@ -165,7 +165,7 @@ a {
     width: 100%;
   }
   .navbar > #Sidebar > li:last-child {
-    margin-bottom: 20em;
+    margin-bottom: 10em;
   }
 
   .navbar .nav-links {
@@ -215,3 +215,4 @@ a {
     width: 100% !important;
   }
 }
+
