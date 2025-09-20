@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- WebFonts.ttf -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Nova+Slim&family=Oleo+Script+Swash+Caps:wght@400;700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="./assets/styles/all.min.css" />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="./assets/styles/bootstrap.min.css" />
+    <!-- Style.CSS -->
+    <link rel="stylesheet" href="./assets/styles/style.css" />
+  </head>
+  <body>
+    <nav class="navbar container p-0 pt-2 pb-2">
+      <ul
+        class="w-100 h-100 ps-4 pe-4 d-none align-items-center justify-content-between"
+      >
+        <li>
+          <a href="Index.html"
+            ><img
+              style="width: 90%"
+              src="./assets/images/Brand-Logo.svg"
+              alt="Brand-Logo"
+          /></a>
+        </li>
+        <li>
+          <button
+            id="toggleSidebar"
+            class="d-flex flex-column border-0 bg-transparent align-items-cente"
+          >
+            <div></div>
+            <div></div>
+            <div></div>
+          </button>
+        </li>
+      </ul>
+      <ul
+        id="Sidebar"
+        class="w-100 h-100 pe-4 d-flex align-items-center justify-content-between"
+      >
+        <li>
+          <a href="Index.html"
+            ><img
+              style="width: 90%"
+              src="./assets/images/Brand-Logo.svg"
+              alt="Brand-Logo"
+          /></a>
+        </li>
+        <li>
+          <ul class="nav-links d-flex">
+            <li><a class="active search-option" href="Index.html">Home</a></li>
+            <li class="dropdown">
+              <a onclick="toggleSubMenu(this)" href="#" class="dropdown-btn">
+                Shop
+                <span><i class="fa-solid fa-caret-down"></i></span>
+              </a>
+              <ul class="sub-menu">
+                <div>
+                  <li><a href="#">Grid</a></li>
+                  <li><a href="#">Details Style One</a></li>
+                </div>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a onclick="toggleSubMenu(this)" href="#" class="dropdown-btn">
+                Pages
+                <span><i class="fa-solid fa-caret-down"></i></span>
+              </a>
+              <ul class="sub-menu">
+                <div>
+                  <li><a href="#">About us</a></li>
+                  <li><a href="#">404 not Found</a></li>
+                </div>
+              </ul>
+            </li>
+            <li><a href="#">Features</a></li>
+            <li class="dropdown">
+              <a onclick="toggleSubMenu(this)" href="#" class="dropdown-btn">
+                Blogs
+                <span><i class="fa-solid fa-caret-down"></i></span>
+              </a>
+              <ul class="sub-menu">
+                <div>
+                  <li><a class="search-option" href="#">Classic</a></li>
+                  <li>
+                    <a class="search-option" href="#">Classic With Sidebar</a>
+                  </li>
+                  <li><a class="search-option" href="#">Details</a></li>
+                </div>
+              </ul>
+            </li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </li>
+        <li class="d-flex justify-content-center">
+          <ul class="nav-icons d-flex">
+            <li>
+              <button id="-iSearch"><i class="fa-solid fa-search"></i></button>
+            </li>
+            <li>
+              <button><i class="fa-solid fa-user"></i></button>
+            </li>
+            <li>
+              <button><i class="fa-solid fa-heart"></i></button>
+            </li>
+            <li>
+              <button><i class="fa-solid fa-shopping-cart"></i></button>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <nav class="search-container w-100 h-100 position-fixed top-0 start-0">
+      <span id="-iSearchCancel" class="position-fixed top-0 end-0 m-4 fs-3"
+        ><i class="fa-solid fa-xmark"></i
+      ></span>
+      <div
+        class="search-box d-flex flex-column align-items-center position-relative"
+        style="background-image: url(./assets/images/Search-Bar-Background.jpg)"
+      >
+        <div class="position-relative mt-5">
+          <span class="position-absolute top-50 start-0 translate-middle-y ms-3"
+            ><i class="fa-solid fa-search"></i
+          ></span>
+          <input
+            class="search-input w-100 h-100 fw-medium"
+            type="text"
+            placeholder="Search"
+          />
+          <ul class="search-suggestions position-absolute w-100 mt-1"></ul>
+          <span
+            onclick="clearInput()"
+            class="position-absolute top-50 end-0 translate-middle-y me-3"
+            ><i class="fa-solid fa-xmark"></i
+          ></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Font Awesome -->
+    <script src="./assets/scripts/all.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="./assets/scripts/bootstrap.bundle.min.js"></script>
+    <!-- Script.JS -->
+    <script src="./assets/scripts/app.js" defer></script>
+  </body>
+</html>

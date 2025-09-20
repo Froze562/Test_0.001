@@ -1,0 +1,308 @@
+:root {
+  --primary-color: #ff6f61;
+  --secondary-font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: 0;
+  font-family: "Ubuntu", var(--secondary-font);
+  scrollbar-width: none;
+}
+body {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+ul,
+a {
+  color: #000;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+.container {
+  @media (min-width: 1440.9px) {
+    max-width: 1700px;
+  }
+}
+.navbar {
+  font: 500 18px "Ubuntu", sans-serif;
+  height: 4.8em;
+  > ul {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 50px;
+    background-color: #fff;
+  }
+  button {
+    background-color: transparent;
+    border: none;
+  }
+  #Sidebar {
+    padding-left: 1.7em !important;
+  }
+}
+#Sidebar .nav-links li a,
+#Sidebar .nav-icons li button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  margin: 0 0.15em;
+  padding: 0.5em 0.6em;
+  border-radius: 1.5em;
+
+  span {
+    font-size: 14px;
+    margin: 0.23em 0 0 0.1em;
+  }
+}
+#Sidebar .nav-icons li button {
+  padding: 0.4em 0.3em;
+  margin: 0 0.15em;
+  font-size: 17px;
+  border-radius: 1em;
+}
+#Sidebar li ul li:hover > a,
+#Sidebar li ul li:hover button,
+.nav-links a.active {
+  color: var(--primary-color);
+}
+
+#toggleSidebar {
+  div {
+    content: "";
+    margin: 0.1em;
+    width: 1.8em;
+    height: 0.35em;
+    border-radius: 1em;
+    background-color: #000;
+    transition: all 0.4s ease;
+  }
+  div:nth-child(2) {
+    transform: translateX(-5px);
+    background-color: var(--primary-color);
+  }
+}
+#toggleSidebar.active div:nth-child(2) {
+  transform: translateX(5px);
+}
+
+.search-container {
+  background-color: rgba(0, 0, 0, 0.8);
+  display: grid;
+  place-items: center;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s linear;
+  > span {
+    color: var(--primary-color);
+  }
+}
+.search-container .search-box {
+  height: 70%;
+  width: 60%;
+  background: no-repeat center / cover;
+  border-radius: 60px;
+  overflow: hidden;
+  transition: all 0.9s ease-in-out;
+  transform: translateY(-150%);
+  opacity: 0;
+  visibility: hidden;
+}
+.search-container .search-box::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.search-container.active,
+.search-container .search-box.active {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+.search-container .search-box {
+  > div {
+    border-radius: 25px;
+    width: 90%;
+    height: 3.2em;
+  }
+  input {
+    padding: 0 3em;
+    border-radius: 50px;
+    border: none;
+    font-size: 19px;
+  }
+}
+
+.search-suggestions {
+  display: none;
+  max-height: 500px;
+  overflow-y: auto;
+  background-color: transparent;
+  padding: 0;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1rem;
+  color: #fff;
+  z-index: 1000;
+  scrollbar-width: none;
+}
+.search-suggestions .suggestion-item {
+  margin-top: 0.1em;
+  cursor: pointer;
+  font-size: 1.2em;
+  padding: 0.7em 2em;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+.suggestion-item.active {
+  border-radius: 2em;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.search-suggestions .suggestion-item span {
+  color: #ff6f61;
+  font-weight: 600;
+}
+
+@media (min-width: 1200.9px) {
+  .sub-menu {
+    position: absolute;
+    left: 1em;
+    top: 2em;
+    padding: 0.2em;
+    width: max-content;
+    border-radius: 0.5em;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    z-index: 10;
+    transition: all 0.6s ease;
+    transform: translateY(10em);
+    opacity: 0;
+    visibility: hidden;
+  }
+  .dropdown:hover .sub-menu {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  #Sidebar .sub-menu li a {
+    margin: 0 0 0.2em 0;
+    padding: 0.7em 3em 0.7em 0.8em;
+    border-radius: 0.5em;
+  }
+  #Sidebar .sub-menu li a:hover {
+    background-color: var(--primary-color);
+    color: rgb(255, 255, 255);
+  }
+  #Sidebar .sub-menu li:last-child > a {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 1200px) {
+  .container {
+    max-width: 95%;
+  }
+  .navbar > ul:first-child {
+    display: flex !important;
+  }
+  .navbar #Sidebar {
+    min-height: 100vh;
+    width: 16em !important;
+    align-items: start !important;
+    justify-content: start !important;
+    overflow-y: scroll;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 0.1em !important;
+    flex-direction: column;
+    border-radius: 25px;
+    transition: all 0.7s ease-in-out;
+    transform: translateX(-125%);
+    opacity: 0;
+    visibility: hidden;
+
+    > li:first-child {
+      margin: 1.5em;
+      img {
+        width: 105% !important;
+      }
+    }
+  }
+  .navbar #Sidebar.active {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  .navbar > #Sidebar li:nth-child(n + 2) {
+    width: 100%;
+  }
+  .navbar > #Sidebar > li:last-child {
+    margin-bottom: 10em;
+  }
+
+  .navbar .nav-links {
+    margin: 7em 0 0.5em 0;
+    width: 100%;
+    flex-direction: column;
+
+    .sub-menu li a {
+      margin-left: 1.5em !important;
+    }
+  }
+  .navbar #Sidebar .nav-links > li a {
+    margin-bottom: 0.3em;
+    padding: 0.8em 0.5em 0.8em 0.8em;
+    border-radius: 12px;
+    transition: all 0.3s ease-in-out;
+  }
+  .navbar .nav-links > li > a:hover,
+  .navbar .nav-links .dropdown:hover > a {
+    background-color: var(--primary-color);
+    color: #fff !important;
+  }
+  .navbar .sub-menu {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: all 300ms ease-in-out;
+    > div {
+      overflow: hidden;
+    }
+  }
+  .navbar .sub-menu.active {
+    grid-template-rows: 1fr;
+  }
+  .navbar #Sidebar .nav-icons li button {
+    padding: 0.5em 1em;
+    margin: 0.2em;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 0px 5px 0px;
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%;
+  }
+  .search-container .search-box{
+    margin-top: 5em;
+    height: 100%;
+    width: 100%;
+    background-image: none !important;
+  }
+  .search-container .search-box::before{
+    display: none;
+  }
+}
+@media (max-width: 320px) {
+  .navbar #Sidebar {
+    width: 100% !important;
+  }
+}
